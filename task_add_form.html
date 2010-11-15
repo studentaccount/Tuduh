@@ -1,0 +1,25 @@
+<div id="add-form">
+
+    <h2>Add a new task:</h2>
+
+	<form method="post" action="/change_task?action=add">
+	    <div id="add-description">
+			<label for="description">Description:</label>
+			<textarea id="description" name="description"></textarea><br>
+		</div>
+		<div id="add-category">
+		    <label for="category">Select a category:</label>
+            <select id="category" name="category">
+                <option value="" selected="selected"></option>
+            {% for category in categories %}
+                <option value="{{ category.key }}">{{ category.name }}</option>
+            {% endfor %}
+            </select> or create a new one: 
+			<input type="text" id="new-category" name="new_category">
+        </div>
+	    <div id="add-submit">
+			<input type="submit" value="Save task">
+		</div>
+	</form>
+
+</div>

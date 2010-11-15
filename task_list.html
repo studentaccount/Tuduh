@@ -1,0 +1,63 @@
+<div id="todo-tasks">
+	
+	<h2>To do list:</h2>
+	{% if tasks.todo.count %}
+	<table border="1">
+	    <tr>
+	        <th class="category">Category</th>
+	        <th class="description">Description</th>
+	        <th class="actions">Actions</th>
+	    </tr>
+	{% for task in tasks.todo %}
+	    <form method="post" action="/change_task">
+	        <input type="hidden" name="key" value="{{ task.key }}">
+	        <tr>
+	            <td class="category">{{ task.category.name }}</td>
+	            <td class="description">{{ task.description }}</td>
+	            <td class="actions">
+	                <input type="submit" name="action" value="mark as done">
+	                <input type="submit" name="action" value="delete">
+	            </td>
+	        </tr>
+	    </form>
+	{% endfor %}
+	</table>
+	{% else %}
+	<p>Yay! No tasks to do.</p>
+	{% endif %}
+
+</div>
+
+
+<div id="done-tasks">
+	
+	<h2>Done tasks:</h2>
+
+	{% if tasks.done.count %}
+
+	<table border="1">
+	    <tr>
+	        <th class="category">Category</th>
+	        <th class="description">Description</th>
+	        <th class="actions">Actions</th>
+	    </tr>
+	{% for task in tasks.done %}
+	    <form method="post" action="/change_task">
+	        <input type="hidden" name="key" value="{{ task.key }}">
+	        <tr>
+	            <td class="category">{{ task.category.name }}</td>
+	            <td class="description">{{ task.description }}</td>
+	            <td class="actions">
+	                <input type="submit" name="action" value="mark as undone">
+	                <input type="submit" name="action" value="delete">
+	            </td>
+	        </tr>
+	    </form>
+	{% endfor %}
+	</table>
+
+	{% else %}
+	<p>You haven't done anything yet, you lazy bastard.</p>
+	{% endif %}
+	
+</div>

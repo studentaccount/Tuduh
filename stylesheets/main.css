@@ -1,0 +1,121 @@
+body {
+	background-color: #f0f0f0;
+	font-family: "Georgia", serif;
+    font-size: 100%;
+    color: #555;
+}
+
+a {
+    color: #06c;
+    text-decoration: none;
+    border-bottom: 1px dotted #06c;
+}
+
+a:hover {
+    color: #00f;
+    border-bottom-width: 0px;
+}
+
+#wrapper {
+	background-color: #fff;
+	width: 700px;
+	margin: 10px;
+    margin-bottom: 150px;
+}
+
+#content {
+	padding: 15px;
+}
+
+#logo {
+	font-family: "Tahoma", sans-serif;
+	font-size: 33px;
+	font-weight: bold;
+	background-color: #D9E6F2;
+	padding: 5px 10px 8px 10px;
+	color: #6699CC;
+	cursor: default;
+	text-align: right;
+}
+
+h2 {
+    padding: 5px;
+    background-color: #E6FFE6;
+    font-size: 130%;
+    border: 1px solid #99CC66;
+}
+
+#user-info {
+	border-bottom: 1px solid #e0e0e0;
+	margin-bottom: 15px;
+	padding: 5px;
+}
+
+textarea, input, select {
+    font-family: "Georgia", serif;
+    font-size: 100%;
+}
+
+#add-form {
+	overflow: hidden;
+	margin-bottom: 50px;
+}
+
+#add-description label {
+	display: block;
+    margin-bottom: 5px;
+}
+
+#add-form textarea {
+    width: 90%;
+    height: 80px;
+    padding: 10px;
+}
+
+#add-description {
+	margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+#add-category {
+    float: left;
+}
+
+#add-form #new-category {
+    width: 170px;
+}
+
+#add-submit {
+	margin-top: 15px;
+    text-align: right;
+}
+
+#done-tasks {
+    margin-top: 35px;
+}
+
+table {
+	border-collapse: collapse;
+    border-color: #6699CC;
+}
+
+th, td {
+	padding: 5px;
+}
+
+th {
+	background-color: #D9E6F2;
+}
+
+th.category, td.category {
+	width: 100px;
+}
+
+th.description, td.description {
+	width: 340px;
+}
+
+th.actions, td.actions {
+	width: 200px;
+	text-align: center;
+}

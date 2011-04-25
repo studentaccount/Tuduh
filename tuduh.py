@@ -26,21 +26,7 @@ class TaskManager(webapp.RequestHandler):
         else:
             action = self.request.get('action')
             if action == 'add':
-                selected_category_key = self.request.get('category')
-                if selected_category_key == "":
-                    new_category_name = self.request.get('new_category')
-                    if new_category_name == "":
-                        new_category_name = 'Default'
-                    selected_category_key = self.get_category_key(new_category_name)
-                else:
-                    selected_category_key = db.Key(selected_category_key)
-                task_category = db.get(selected_category_key)
-                task = Task()
-                task.owner = users.get_current_user()
-                task.category = task_category
-                task.description = self.request.get('description')
-                task.is_done = False
-                task.put()
+                self.add()
             elif action == 'mark as done':
                 task = db.get(db.Key(self.request.get('key')))
                 task.is_done = True
@@ -76,6 +62,23 @@ class TaskManager(webapp.RequestHandler):
             category.name = category_name
             category.put()
         return category.key()
+
+    def add(self):
+        selected_category_key = self.request.get('category')
+        if selected_category_key == "":
+            new_category_name = self.request.get('new_category')
+            if new_category_name == "":
+                new_category_name = 'Default'
+            selected_category_key = self.get_category_key(new_category_name)
+        else:
+            selected_category_key = db.Key(selected_category_key)
+        task_category = db.get(selected_category_key)
+        task = Task()
+        task.owner = users.get_current_user()
+        task.category = task_category
+        task.description = self.request.get('description')
+        task.is_done = False
+        task.put()
 
 class MainHandler(webapp.RequestHandler):
     def get(self):
